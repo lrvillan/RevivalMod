@@ -7,8 +7,8 @@ using RevivalMod.Patches;
 namespace RevivalMod
 {
     // first string below is your plugin's GUID, it MUST be unique to any other mod. Read more about it in BepInEx docs. Be sure to update it if you copy this project.
-    [BepInDependency("com.fika.core", BepInDependency.DependencyFlags.SoftDependency)]
-    [BepInPlugin("com.kaikinoodles.revivalmod", "RevivalMod", "0.0.1")]
+    //[BepInDependency("com.fika.core", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInPlugin("com.kaikinoodles.revivalmod", "RevivalMod", "1.0.0")]
     public class Plugin : BaseUnityPlugin
     {
         public static ManualLogSource LogSource;

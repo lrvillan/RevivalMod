@@ -1,6 +1,0 @@
-0000000000000000000000000000000000000000 75c7a283e38a097d6b496317a89ccdef53006ea3 Kaï Everaerts <kai.everaerts@hotmail.com> 1741778036 +0100	branch: Created from master
-75c7a283e38a097d6b496317a89ccdef53006ea3 0caa13620fad9da648efa436f7ef72eb797fd5c2 Kaï Everaerts <kai.everaerts@hotmail.com> 1741778849 +0100	commit: init
-0caa13620fad9da648efa436f7ef72eb797fd5c2 1b1048f7018007a2855853a92e7c8a18ec904440 Kaï Everaerts <kai.everaerts@hotmail.com> 1741815902 +0100	pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
-1b1048f7018007a2855853a92e7c8a18ec904440 f0b55f065111fc5667802952405d27fcf3bc96cb Kaï Everaerts <kai.everaerts@hotmail.com> 1741822049 +0100	commit: Squashed commit of the following:
-f0b55f065111fc5667802952405d27fcf3bc96cb 1b1048f7018007a2855853a92e7c8a18ec904440 Kaï Everaerts <kai.everaerts@hotmail.com> 1741822049 +0100	reset: moving to 1b1048f7018007a2855853a92e7c8a18ec904440
-1b1048f7018007a2855853a92e7c8a18ec904440 cc24c66ac29629ed91bf207896667a046f278dc9 Kaï Everaerts <kai.everaerts@hotmail.com> 1742234473 +0100	commit: better kill animation
