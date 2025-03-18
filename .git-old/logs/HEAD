@@ -1,0 +1,47 @@
+0000000000000000000000000000000000000000 51e340c4ed5199a00a032030fef656fe27e7711d Kaï Everaerts <kai.everaerts@hotmail.com> 1741643461 +0100	commit (initial): Add .gitattributes.
+51e340c4ed5199a00a032030fef656fe27e7711d a40f3d0721fa4d80822130a765d2968402697d61 Kaï Everaerts <kai.everaerts@hotmail.com> 1741643512 +0100	commit: Init
+a40f3d0721fa4d80822130a765d2968402697d61 93f5375a519c50aa26a06dc9e4e547769be4a8dd Kaï Everaerts <kai.everaerts@hotmail.com> 1741645121 +0100	commit: Working damage detection and death prevention
+93f5375a519c50aa26a06dc9e4e547769be4a8dd 6f237b6632a82f00cabdc4eb69fbe429a23e784b Kaï Everaerts <kai.everaerts@hotmail.com> 1741646410 +0100	commit: UpdatedMod
+6f237b6632a82f00cabdc4eb69fbe429a23e784b d44389fe0c00e330f88893f263b94d43e017e768 Kaï Everaerts <kai.everaerts@hotmail.com> 1741647242 +0100	commit: More balanced and more reliable
+d44389fe0c00e330f88893f263b94d43e017e768 ed64205d678e15e01168383c9d8d9e15bbea40d4 Kaï Everaerts <kai.everaerts@hotmail.com> 1741719566 +0100	commit: Fika Integration
+ed64205d678e15e01168383c9d8d9e15bbea40d4 c826f2a30ed46eb0e723545e8d2d10c3a89e10de Kaï Everaerts <kai.everaerts@hotmail.com> 1741719616 +0100	pull --progress --no-edit --no-stat --recurse-submodules=no origin: Merge made by the 'ort' strategy.
+c826f2a30ed46eb0e723545e8d2d10c3a89e10de eb1f3e05c43ae792626e5a62e3f96bcf1159f37c Kaï Everaerts <kai.everaerts@hotmail.com> 1741720020 +0100	commit: fixed. Now Routes work
+eb1f3e05c43ae792626e5a62e3f96bcf1159f37c 14e9695f5cc431e1fbdfebfbafd77168ab5e24ea Kaï Everaerts <kai.everaerts@hotmail.com> 1741720652 +0100	commit: Packets working
+14e9695f5cc431e1fbdfebfbafd77168ab5e24ea f4648e6ae5a321d413b57748d1190d090ddb10f2 Kaï Everaerts <kai.everaerts@hotmail.com> 1741725357 +0100	commit: small changes
+f4648e6ae5a321d413b57748d1190d090ddb10f2 66ed03a218a9e2e2d0a67dcfcde7caad009fd2de Kaï Everaerts <kai.everaerts@hotmail.com> 1741731674 +0100	commit: abc
+66ed03a218a9e2e2d0a67dcfcde7caad009fd2de baa68e88fdd016c2276d987a8fccda75134a4ea9 Kaï Everaerts <kai.everaerts@hotmail.com> 1741771522 +0100	commit: Botbehaviour
+baa68e88fdd016c2276d987a8fccda75134a4ea9 75c7a283e38a097d6b496317a89ccdef53006ea3 Kaï Everaerts <kai.everaerts@hotmail.com> 1741778001 +0100	commit: Initial release-ready 0.0.1
+75c7a283e38a097d6b496317a89ccdef53006ea3 75c7a283e38a097d6b496317a89ccdef53006ea3 Kaï Everaerts <kai.everaerts@hotmail.com> 1741778036 +0100	checkout: moving from master to dev
+75c7a283e38a097d6b496317a89ccdef53006ea3 75c7a283e38a097d6b496317a89ccdef53006ea3 Kaï Everaerts <kai.everaerts@hotmail.com> 1741778226 +0100	reset: moving to HEAD
+75c7a283e38a097d6b496317a89ccdef53006ea3 75c7a283e38a097d6b496317a89ccdef53006ea3 Kaï Everaerts <kai.everaerts@hotmail.com> 1741778227 +0100	checkout: moving from dev to master
+75c7a283e38a097d6b496317a89ccdef53006ea3 8b9faa4949a25f56eb3083e66c8baedd364a747f Kaï Everaerts <kai.everaerts@hotmail.com> 1741778249 +0100	commit: ReadMe Updated
+8b9faa4949a25f56eb3083e66c8baedd364a747f 75c7a283e38a097d6b496317a89ccdef53006ea3 Kaï Everaerts <kai.everaerts@hotmail.com> 1741778256 +0100	checkout: moving from master to dev
+75c7a283e38a097d6b496317a89ccdef53006ea3 75c7a283e38a097d6b496317a89ccdef53006ea3 Kaï Everaerts <kai.everaerts@hotmail.com> 1741778626 +0100	reset: moving to HEAD
+75c7a283e38a097d6b496317a89ccdef53006ea3 8b9faa4949a25f56eb3083e66c8baedd364a747f Kaï Everaerts <kai.everaerts@hotmail.com> 1741778626 +0100	checkout: moving from dev to master
+8b9faa4949a25f56eb3083e66c8baedd364a747f 75c7a283e38a097d6b496317a89ccdef53006ea3 Kaï Everaerts <kai.everaerts@hotmail.com> 1741778836 +0100	checkout: moving from master to dev
+75c7a283e38a097d6b496317a89ccdef53006ea3 0caa13620fad9da648efa436f7ef72eb797fd5c2 Kaï Everaerts <kai.everaerts@hotmail.com> 1741778849 +0100	commit: init
+0caa13620fad9da648efa436f7ef72eb797fd5c2 8b9faa4949a25f56eb3083e66c8baedd364a747f Kaï Everaerts <kai.everaerts@hotmail.com> 1741779225 +0100	checkout: moving from dev to master
+8b9faa4949a25f56eb3083e66c8baedd364a747f 0caa13620fad9da648efa436f7ef72eb797fd5c2 Kaï Everaerts <kai.everaerts@hotmail.com> 1741815895 +0100	checkout: moving from master to dev
+0caa13620fad9da648efa436f7ef72eb797fd5c2 1b1048f7018007a2855853a92e7c8a18ec904440 Kaï Everaerts <kai.everaerts@hotmail.com> 1741815902 +0100	pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+1b1048f7018007a2855853a92e7c8a18ec904440 1b1048f7018007a2855853a92e7c8a18ec904440 Kaï Everaerts <kai.everaerts@hotmail.com> 1741819648 +0100	reset: moving to HEAD
+1b1048f7018007a2855853a92e7c8a18ec904440 8b9faa4949a25f56eb3083e66c8baedd364a747f Kaï Everaerts <kai.everaerts@hotmail.com> 1741819648 +0100	checkout: moving from dev to master
+8b9faa4949a25f56eb3083e66c8baedd364a747f f9b5fd4927b73b5b75bfad5c6832680481ed6014 Kaï Everaerts <kai.everaerts@hotmail.com> 1741820190 +0100	commit: Update Constants.cs
+f9b5fd4927b73b5b75bfad5c6832680481ed6014 11dc30e5e7354b8d492ed6af8ab8141506328e46 Kaï Everaerts <kai.everaerts@hotmail.com> 1741820424 +0100	commit: Added Server Mod To Repo
+11dc30e5e7354b8d492ed6af8ab8141506328e46 47ae08fde4927495d7153d0d7498b57396c0627f Kaï Everaerts <kai.everaerts@hotmail.com> 1741821941 +0100	commit: config added
+47ae08fde4927495d7153d0d7498b57396c0627f 1b1048f7018007a2855853a92e7c8a18ec904440 Kaï Everaerts <kai.everaerts@hotmail.com> 1741821960 +0100	checkout: moving from master to dev
+1b1048f7018007a2855853a92e7c8a18ec904440 f0b55f065111fc5667802952405d27fcf3bc96cb Kaï Everaerts <kai.everaerts@hotmail.com> 1741822049 +0100	commit: Squashed commit of the following:
+f0b55f065111fc5667802952405d27fcf3bc96cb 1b1048f7018007a2855853a92e7c8a18ec904440 Kaï Everaerts <kai.everaerts@hotmail.com> 1741822049 +0100	reset: moving to 1b1048f7018007a2855853a92e7c8a18ec904440
+1b1048f7018007a2855853a92e7c8a18ec904440 cc24c66ac29629ed91bf207896667a046f278dc9 Kaï Everaerts <kai.everaerts@hotmail.com> 1742234473 +0100	commit: better kill animation
+cc24c66ac29629ed91bf207896667a046f278dc9 47ae08fde4927495d7153d0d7498b57396c0627f Kaï Everaerts <kai.everaerts@hotmail.com> 1742234494 +0100	checkout: moving from dev to master
+47ae08fde4927495d7153d0d7498b57396c0627f 76df607eb76f0687008643e281c632d4619781e0 Kaï Everaerts <kai.everaerts@hotmail.com> 1742234524 +0100	commit (merge): Merge branch 'dev'
+76df607eb76f0687008643e281c632d4619781e0 6fcdc082e1af3c3cbb788f16db7b0f162e4b43c1 Kaï Everaerts <kai.everaerts@hotmail.com> 1742234561 +0100	commit: testing = false
+6fcdc082e1af3c3cbb788f16db7b0f162e4b43c1 d8e50889635052046bca982f0c59fbcd51e2b4e9 Kaï Everaerts <kai.everaerts@hotmail.com> 1742235317 +0100	commit: Working NOT BALANCED?
+d8e50889635052046bca982f0c59fbcd51e2b4e9 d8e50889635052046bca982f0c59fbcd51e2b4e9 Kaï Everaerts <kai.everaerts@hotmail.com> 1742249809 +0100	checkout: moving from master to NO-FIKA
+d8e50889635052046bca982f0c59fbcd51e2b4e9 3feafd58035a883438d1461df2d1546b3d500734 Kaï Everaerts <kai.everaerts@hotmail.com> 1742249827 +0100	commit: No fika init
+3feafd58035a883438d1461df2d1546b3d500734 3feafd58035a883438d1461df2d1546b3d500734 Kaï Everaerts <kai.everaerts@hotmail.com> 1742249970 +0100	reset: moving to HEAD
+3feafd58035a883438d1461df2d1546b3d500734 d8e50889635052046bca982f0c59fbcd51e2b4e9 Kaï Everaerts <kai.everaerts@hotmail.com> 1742249970 +0100	checkout: moving from NO-FIKA to master
+d8e50889635052046bca982f0c59fbcd51e2b4e9 3feafd58035a883438d1461df2d1546b3d500734 Kaï Everaerts <kai.everaerts@hotmail.com> 1742249989 +0100	checkout: moving from master to NO-FIKA
+3feafd58035a883438d1461df2d1546b3d500734 33a6a7515de729b2d71b8f6ea65103945ded8df8 Kaï Everaerts <kai.everaerts@hotmail.com> 1742250152 +0100	commit: no fika working
+33a6a7515de729b2d71b8f6ea65103945ded8df8 d8e50889635052046bca982f0c59fbcd51e2b4e9 Kaï Everaerts <kai.everaerts@hotmail.com> 1742250155 +0100	checkout: moving from NO-FIKA to master
+d8e50889635052046bca982f0c59fbcd51e2b4e9 d8e50889635052046bca982f0c59fbcd51e2b4e9 Kaï Everaerts <kai.everaerts@hotmail.com> 1742251239 +0100	reset: moving to HEAD
+d8e50889635052046bca982f0c59fbcd51e2b4e9 33a6a7515de729b2d71b8f6ea65103945ded8df8 Kaï Everaerts <kai.everaerts@hotmail.com> 1742251239 +0100	checkout: moving from master to NO-FIKA
