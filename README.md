@@ -1,4 +1,4 @@
-# RevivalMod for SPT-AKI 🚑
+# RevivalMod for SPT 🚑
 
 ## Overview
 RevivalMod adds a second-chance mechanic to Single Player Tarkov. Instead of immediately dying when taking lethal damage, you'll enter a critical state and can use a defibrillator to revive yourself and continue your raid.
@@ -8,17 +8,16 @@ RevivalMod adds a second-chance mechanic to Single Player Tarkov. Instead of imm
 - **Defibrillator Revival**: Press F5 while in critical state to revive using your defibrillator
 - **Post-Revival Protection**: Temporary invulnerability period after revival to get to safety
 - **AI Behavior Modification**: Bots ignore players in critical state
-- **Multiplayer Compatible**: Works with Fika Co-op mod
 - **Visual Indicators**: Clear notifications and visual effects for critical state and revival
 - **Balance Features**: Movement limitations during critical state and cooldown between revivals
 
 ## Requirements
-- SPT-AKI (Latest version)
+- SPT (Latest version)
 - BepInEx
 
 ## Installation
 1. Download the latest release ZIP from the Releases section
-2. Extract the contents to your SPT-AKI installation directory
+2. Extract the contents to your SPT installation directory
 3. The mod will be automatically loaded when you start the game
 
 ## How To Use
@@ -47,12 +46,6 @@ Additional settings in `Features.cs`:
 - `MANUAL_REVIVAL_KEY`: Key to trigger revival (default: F5)
 - `REVIVAL_COOLDOWN`: Time between revivals (default: 180 seconds)
 
-## Multiplayer Support
-When using the Fika Co-op mod, RevivalMod will synchronize player states:
-- All players will see when someone enters critical state
-- Revival status is shared between players
-- Defibrillator item requirements are checked server-side
-
 ## Known Issues
 - Visual effects may occasionally flicker or not display properly
 - Some interactions between revival state and certain game mechanics may cause unexpected behavior
@@ -62,17 +55,20 @@ When using the Fika Co-op mod, RevivalMod will synchronize player states:
 - **Still dying instantly**: Check logs for errors and make sure the mod is properly installed
 - **Performance issues**: The mod has minimal performance impact, but disable if experiencing problems
 
+## To do:
+- Fika Co-op Support 
+
 ## Credits
 - Developed by KaiKiNoodles
-- Special thanks to the SPT-AKI development team
+- Special thanks to the SPT development team
 - Fika Co-op integration support from the Fika team
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Support
-If you encounter any issues or have suggestions for improvement, please open an issue on the GitHub repository or contact me through the SPT-AKI Discord.
+If you encounter any issues or have suggestions for improvement, please open an issue on the GitHub repository or contact me through the SPT Discord.
 
 ---
 
-*Note: This mod is not affiliated with or endorsed by Battlestate Games. Use at your own risk in accordance with the SPT-AKI project guidelines.*
+*Note: This mod is not affiliated with or endorsed by Battlestate Games. Use at your own risk in accordance with the SPT project guidelines.*
