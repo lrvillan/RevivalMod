@@ -9,6 +9,7 @@ using System.Reflection;
 using UnityEngine;
 using EFT.InventoryLogic;
 using System.Linq;
+using RevivalMod.Helpers;
 
 namespace RevivalMod.Patches
 {
@@ -61,7 +62,7 @@ namespace RevivalMod.Patches
 
 
                 // Display notification about revival item status
-                if (Constants.Constants.TESTING)
+                if (Settings.TESTING.Value)
                 {
                     NotificationManagerClass.DisplayMessageNotification(
                     $"Revival System: {(hasItem ? "Revival item found" : "No revival item found")}",
