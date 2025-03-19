@@ -202,12 +202,6 @@ namespace RevivalMod.Features
                     //    ?.Invoke(player.MovementContext, new object[] { "critical_state", 0.05f });
                 }
 
-                // Disable jumping if possible
-                //SetCanJump(player, false);
-
-                // Apply visual effects - heavy blurring and darkening of screen edges
-                // (Note: actual implementation would need to use game's visual effect system)
-
                 Plugin.LogSource.LogDebug($"Applied critical effects to player {playerId}");
             }
             catch (Exception ex)
@@ -229,13 +223,6 @@ namespace RevivalMod.Features
                     player.Physical.WalkSpeedLimit = originalSpeed;
                     _originalMovementSpeed.Remove(playerId);
                 }
-
-                // Restore original physical condition
-                //if (_originalPhysicalCondition.TryGetValue(playerId, out EPhysicalCondition originalCondition))
-                //{
-                //    player.Physical.PhysicalCondition = originalCondition;
-                //    _originalPhysicalCondition.Remove(playerId);
-                //}
 
                 Plugin.LogSource.LogDebug($"Restored movement for player {playerId}");
             }
@@ -261,13 +248,13 @@ namespace RevivalMod.Features
 
                 //// Set awareness to 0 to make bots not detect the player
                 //player.Awareness = 0f;
-
+                player.PlayDeathSound();
                 player.HandsController.IsAiming = false;
-                //player.MovementContext.SetPoseLevel(0f, true);
+                player.MovementContext.EnableSprint(false);
+                player.MovementContext.SetPoseLevel(0f, true);
                 player.MovementContext.IsInPronePose = true;
-                player.MovementContext.UpdateAnimatorRotationParameters();
                 player.SetEmptyHands(null);
-
+                player.ResetLookDirection();
                 player.ActiveHealthController.IsAlive = false;
                 Plugin.LogSource.LogDebug($"Applied improved stealth mode to player {playerId}");
                 Plugin.LogSource.LogDebug($"Stealth Mode Variables, Current Awareness: {player.Awareness}, IsAlive: {player.ActiveHealthController.IsAlive}");
@@ -390,6 +377,8 @@ namespace RevivalMod.Features
                 // Apply invulnerability
                 StartInvulnerability(player);
 
+                player.Say(EPhraseTrigger.OnMutter, false, 2f, ETagStatus.Combat, 100, true);
+
                 // Reset critical state
                 _playerInCriticalState[playerId] = false;
 
@@ -464,21 +453,21 @@ namespace RevivalMod.Features
                 // Remove negative effects
                 //RemoveAllNegativeEffects(healthController);
 
-                // Apply limited healing - enough to survive but not full health
-                healthController.ChangeHealth(EBodyPart.Head, 35f, new DamageInfoStruct());
-                healthController.ChangeHealth(EBodyPart.Chest, 40f, new DamageInfoStruct());
-                healthController.ChangeHealth(EBodyPart.LeftArm, 30f, new DamageInfoStruct());
-                healthController.ChangeHealth(EBodyPart.RightArm, 30f, new DamageInfoStruct());
-                healthController.ChangeHealth(EBodyPart.LeftLeg, 25f, new DamageInfoStruct());
-                healthController.ChangeHealth(EBodyPart.RightLeg, 25f, new DamageInfoStruct());
-                healthController.ChangeHealth(EBodyPart.Stomach, 25f, new DamageInfoStruct());
+                if (!Settings.HARDCORE_MODE.Value && Settings.RESTORE_DESTROYED_BODY_PARTS.Value) {
+                    // Apply limited healing - enough to survive but not full health
 
-                // Restore some energy and hydration, but not full
-                healthController.ChangeEnergy(30f);
-                healthController.ChangeHydration(30f);
+                    foreach (EBodyPart bodyPart in Enum.GetValues(typeof(EBodyPart)))
+                    {
+                        Plugin.LogSource.LogDebug($"{bodyPart.ToString()} is on {healthController.GetBodyPartHealth(bodyPart).Current} health.");
+                        if (healthController.GetBodyPartHealth(bodyPart).Current < 1) { 
+                            healthController.FullRestoreBodyPart(bodyPart);
+                            Plugin.LogSource.LogDebug($"Restored {bodyPart.ToString()}.");
+                        }
+                    }
+                }
 
-                // Apply painkillers effect
-                healthController.DoPainKiller();
+                //// Apply painkillers effect
+                //healthController.DoPainKiller();
 
                 // Apply tremor effect
                 healthController.DoContusion(Settings.REVIVAL_DURATION.Value, 1f);

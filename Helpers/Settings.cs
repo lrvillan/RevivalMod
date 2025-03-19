@@ -8,6 +8,8 @@ namespace RevivalMod.Helpers
         public static ConfigEntry<float> REVIVAL_DURATION;
         public static ConfigEntry<KeyCode> REVIVAL_KEY;
         public static ConfigEntry<float> REVIVAL_COOLDOWN;
+        public static ConfigEntry<bool> RESTORE_DESTROYED_BODY_PARTS;
+
         public static ConfigEntry<bool> HARDCORE_MODE; 
         public static ConfigEntry<bool> HARDCORE_HEADSHOT_DEFAULT_DEAD;
         public static ConfigEntry<float> HARDCORE_CHANCE_OF_CRITICAL_STATE;
@@ -30,7 +32,7 @@ namespace RevivalMod.Helpers
             );
             HARDCORE_HEADSHOT_DEFAULT_DEAD = config.Bind(
                 "Hardcore Mode",
-                "Headshot is alwasy dead",
+                "Headshot is always dead",
                 false,
                "Headshot kills always"
             );
@@ -51,6 +53,12 @@ namespace RevivalMod.Helpers
                 "Revival Cooldown",
                 180f
               );
+            RESTORE_DESTROYED_BODY_PARTS = config.Bind(
+                "General",
+                "Restore destroyed body parts after revive",
+                false,
+               "Does not work if Hardcore Mode is enabled"
+            );
 
             TESTING = config.Bind(
                 "Development",
