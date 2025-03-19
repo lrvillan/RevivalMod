@@ -108,6 +108,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Constants.cs" />
+    <Compile Include="Helpers\ConfigurationManagerAttributes.cs" />
+    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Patches\DeathPatch.cs" />
     <Compile Include="Features\Features.cs" />
     <Compile Include="Helpers\Utils.cs" />

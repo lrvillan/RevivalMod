@@ -3,12 +3,13 @@ using BepInEx.Logging;
 using RevivalMod.Features;
 using BepInEx.Bootstrap;
 using RevivalMod.Patches;
+using RevivalMod.Helpers;
 
 namespace RevivalMod
 {
     // first string below is your plugin's GUID, it MUST be unique to any other mod. Read more about it in BepInEx docs. Be sure to update it if you copy this project.
     //[BepInDependency("com.fika.core", BepInDependency.DependencyFlags.SoftDependency)]
-    [BepInPlugin("com.kaikinoodles.revivalmod", "RevivalMod", "1.0.0")]
+    [BepInPlugin("com.kaikinoodles.revivalmod", "RevivalMod", "1.1.0")]
     public class Plugin : BaseUnityPlugin
     {
         public static ManualLogSource LogSource;
@@ -19,7 +20,7 @@ namespace RevivalMod
             // save the Logger to variable so we can use it elsewhere in the project
             LogSource = Logger;
             LogSource.LogInfo("Revival plugin loaded!");
-
+            Settings.Init(Config);
             // Enable patches
             new DeathPatch().Enable();
             new RevivalFeatures().Enable();
