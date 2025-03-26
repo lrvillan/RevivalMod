@@ -49,6 +49,9 @@ class RevivalMod implements IPreSptLoadMod, IPostDBLoadMod, IPostSptLoadMod {
             // Optional: Improve the defibrillator's properties
             this.enhanceDefibrillatorProperties();
 
+            // Optional: Add defibrillator to special slots (e.g., pockets)
+            this.addDefibrillatorToSpecialSlot();
+
             this.logger.info(`[${this.mod}] Setup complete in postDBLoad`);
         } catch (error) {
             this.logger.error(`[${this.mod}] Error in postDBLoad: ${error.message}`);
@@ -198,6 +201,34 @@ class RevivalMod implements IPreSptLoadMod, IPostDBLoadMod, IPostSptLoadMod {
             }
         } catch (error) {
             this.logger.error(`[${this.mod}] Error enhancing defibrillator properties: ${error.message}`);
+        }
+    }
+
+    private addDefibrillatorToSpecialSlot() {
+        try {
+            this.logger.info(`[${this.mod}] Debugging add defibrilator to special slots...`);
+            const tables = this.databaseServer.getTables();
+
+            // for standard edition pockets
+            const defaultPocketsStandardEdition = tables.templates.items["627a4e6b255f7527fb05a0f6"];
+            const defaultPocketsUnheard = tables.templates.items["65e080be269cbd5c5005e529"];
+
+            
+            // Add defib to standard edition pockets
+            for (let i = 0; i < 6; i++) {
+                if (defaultPocketsStandardEdition._props.Slots[i] !== undefined) {
+                    defaultPocketsStandardEdition._props.Slots[i]._props.filters[0].Filter.push(this.defibId);
+                }
+            }
+
+            // Add defib to unheard pockets
+            for (let i = 0; i < 6; i++) {
+                if (defaultPocketsUnheard._props.Slots[i] !== undefined) {
+                    defaultPocketsUnheard._props.Slots[i]._props.filters[0].Filter.push(this.defibId);
+                }
+            }
+        } catch (error) {
+            this.logger.error(`[${this.mod}] Error adding defibrillator to special slot: ${error.message}`);
         }
     }
 
