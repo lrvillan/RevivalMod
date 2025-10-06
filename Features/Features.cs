@@ -440,31 +440,36 @@ namespace RevivalMod.Features
 
                 if (defibItem != null)
                 {
-                    ////defibItem.StackObjectsCount
-                    //// Use reflection to access the necessary methods to destroy the item
-                    //MethodInfo moveMethod = AccessTools.Method(typeof(InventoryController), "ThrowItem");
-                    //if (moveMethod != null)
-                    //{
-                    //    // This will effectively discard the item
-                    //    moveMethod.Invoke(player.InventoryController, new object[] { defibItem, false, null });
-                    //    Plugin.LogSource.LogInfo($"Consumed defibrillator item {defibItem.Id}");
-                    //}
-                    //else
-                    //{
-                    //    Plugin.LogSource.LogError("Could not find ThrowItem method");
-                    //}
-
-                    GStruct455<GClass3200> gStruct = InteractionsHandlerClass.Discard(defibItem, player.InventoryController, true);
-                    if (gStruct.Failed)
+                    if(Settings.CONSUME_DEFIB.Value)
                     {
-                        Plugin.LogSource.LogError($"Error consuming item: {gStruct.Error}");
+                        GStruct455<GClass3200> gStruct = InteractionsHandlerClass.Discard(defibItem, player.InventoryController, true);
+                        if (gStruct.Failed)
+                        {
+                            Plugin.LogSource.LogError($"Error consuming item: {gStruct.Error}");
+                        }
+                        else
+                        {
+                            player.InventoryController.vmethod_1(
+                                new RemoveOperationClass(player.InventoryController.method_12(), player.InventoryController, gStruct.Value),
+                                null
+                                );
+                            Plugin.LogSource.LogInfo($"Consumed defibrillator item {defibItem.Id}");
+                        }
                     }
                     else
                     {
-                        player.InventoryController.vmethod_1(
-                            new RemoveOperationClass(player.InventoryController.method_12(), player.InventoryController, gStruct.Value),
-                            null
-                            );
+                        // Use reflection to access the necessary methods to destroy the item
+                        MethodInfo moveMethod = AccessTools.Method(typeof(InventoryController), "ThrowItem");
+                        if (moveMethod != null)
+                        {
+                            // This will effectively discard the item
+                            moveMethod.Invoke(player.InventoryController, new object[] { defibItem, false, null });
+                            Plugin.LogSource.LogInfo($"Consumed defibrillator item {defibItem.Id}");
+                        }
+                        else
+                        {
+                            Plugin.LogSource.LogError("Could not find ThrowItem method");
+                        }
                     }
                 }
             }

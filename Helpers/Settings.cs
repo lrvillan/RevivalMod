@@ -8,6 +8,7 @@ namespace RevivalMod.Helpers
         public static ConfigEntry<float> REVIVAL_DURATION;
         public static ConfigEntry<KeyCode> REVIVAL_KEY;
         public static ConfigEntry<KeyCode> GIVEUP_KEY;
+        public static ConfigEntry<bool> CONSUME_DEFIB;
 
         public static ConfigEntry<float> REVIVAL_COOLDOWN;
         public static ConfigEntry<bool> RESTORE_DESTROYED_BODY_PARTS;
@@ -51,7 +52,7 @@ namespace RevivalMod.Helpers
                 KeyCode.F5
             );
 
-            Settings.GIVEUP_KEY = config.Bind<KeyCode>(
+            GIVEUP_KEY = config.Bind<KeyCode>(
                 "General",
                 "Give Up Key",
                 KeyCode.F9,
@@ -69,6 +70,13 @@ namespace RevivalMod.Helpers
                 "Restore destroyed body parts after revive",
                 false,
                "Does not work if Hardcore Mode is enabled"
+            );
+
+            CONSUME_DEFIB = config.Bind(
+                "Consume Defibrillator",
+                "Enable Consume Defibrillator",
+                true,
+               "Adapt the values below the change the use of defibrillator settings"
             );
 
             TESTING = config.Bind(
