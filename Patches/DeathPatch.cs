@@ -34,13 +34,30 @@ namespace RevivalMod.Patches
                 if (player == null) return true;
 
                 if (!player.IsYourPlayer || player.IsAI) return true;
+                if (RevivalFeatures.ForceKillRequested)
+                {
+                    RevivalFeatures.ForceKillRequested = false;
+                    Plugin.LogSource.LogInfo("ForceKillRequested: letting player die normally.");
+                    return true;
+                }
 
                 string playerId = player.ProfileId;
-
+                Profile profile = player.Profile;
+                string nickname;
+                if (profile == null)
+                {
+                    nickname = null;
+                }
+                else
+                {
+                    InfoClass info = profile.Info;
+                    nickname = ((info != null) ? info.Nickname : null);
+                }
+                nickname = nickname ?? "Unknown";
                 // Check if player is invulnerable from recent revival
                 if (RevivalFeatures.IsPlayerInvulnerable(playerId))
                 {
-                    Plugin.LogSource.LogInfo($"Player {playerId} is invulnerable, blocking death completely");
+                    Plugin.LogSource.LogInfo(string.Concat(new string[] { "Player: ", nickname, " (", playerId, ") is invulnerable, blocking death completely" }));
                     return false; // Block the kill completely
                 }
 

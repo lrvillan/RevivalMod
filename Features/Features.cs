@@ -13,6 +13,7 @@ using UnityEngine;
 using EFT.Communications;
 using Comfort.Common;
 using RevivalMod.Helpers;
+using UnityEngine.Profiling;
 
 namespace RevivalMod.Features
 {
@@ -35,6 +36,7 @@ namespace RevivalMod.Features
         private static Dictionary<string, float> _originalMovementSpeed = new Dictionary<string, float>(); // Store original movement speed
         private static Dictionary<string, EFT.PlayerAnimator.EWeaponAnimationType> _originalWeaponAnimationType = new Dictionary<string, PlayerAnimator.EWeaponAnimationType>();
         private static Player PlayerClient { get; set; } = null;
+        internal static bool ForceKillRequested = false;
 
         protected override MethodBase GetTargetMethod()
         {
@@ -48,8 +50,9 @@ namespace RevivalMod.Features
             try
             {
                 string playerId = __instance.ProfileId;
+                Profile profile = __instance.Profile;                
                 PlayerClient = __instance;
-
+                
                 // Only proceed for the local player
                 if (!__instance.IsYourPlayer)
                     return;
@@ -97,6 +100,15 @@ namespace RevivalMod.Features
                     {
                         TryPerformManualRevival(__instance);
                     }
+                }
+
+                if (Input.GetKeyDown(Settings.GIVEUP_KEY.Value))
+                {
+                    Plugin.LogSource.LogInfo("Player pressed F6 to give up in critical state.");
+                    RevivalFeatures.ForceKillRequested = true;
+                    RevivalFeatures.EndInvulnerability(__instance);
+                    RevivalFeatures._playerInCriticalState[playerId] = false;
+                    __instance.ActiveHealthController.Kill(EDamageType.Bullet);
                 }
             }
             catch (Exception ex)
@@ -248,13 +260,16 @@ namespace RevivalMod.Features
 
                 //// Set awareness to 0 to make bots not detect the player
                 //player.Awareness = 0f;
+
                 player.PlayDeathSound();
                 player.HandsController.IsAiming = false;
                 player.MovementContext.EnableSprint(false);
-                player.MovementContext.SetPoseLevel(0f, true);
+                player.MovementContext.SetPoseLevel(0);
                 player.MovementContext.IsInPronePose = true;
                 player.SetEmptyHands(null);
                 player.ResetLookDirection();
+                player.MovementContext.ReleaseDoorIfInteractingWithOne();
+
                 player.ActiveHealthController.IsAlive = false;
                 Plugin.LogSource.LogDebug($"Applied improved stealth mode to player {playerId}");
                 Plugin.LogSource.LogDebug($"Stealth Mode Variables, Current Awareness: {player.Awareness}, IsAlive: {player.ActiveHealthController.IsAlive}");
@@ -275,10 +290,17 @@ namespace RevivalMod.Features
 
                 //player.Awareness = _originalAwareness[playerId];
                 //_originalAwareness.Remove(playerId);
+                // Stand player up 
+                
+                //player.Say(EPhraseTrigger.OnMutter, false, 2f, ETagStatus.Combat, 100, true);
 
-                player.IsVisible = true;
+                player.IsVisible = false;
+                player.HandsController.IsAiming = true;
                 player.ActiveHealthController.IsAlive = true;
                 player.ActiveHealthController.DoContusion(25f, 0.25f);
+                player.MovementContext.SetPoseLevel(1);
+                player.MovementContext.EnableSprint(true);
+                player.MovementContext.IsInPronePose = false;
 
                 Plugin.LogSource.LogInfo($"Removed stealth mode from player {playerId}");
                 
@@ -418,17 +440,31 @@ namespace RevivalMod.Features
 
                 if (defibItem != null)
                 {
-                    // Use reflection to access the necessary methods to destroy the item
-                    MethodInfo moveMethod = AccessTools.Method(typeof(InventoryController), "ThrowItem");
-                    if (moveMethod != null)
+                    ////defibItem.StackObjectsCount
+                    //// Use reflection to access the necessary methods to destroy the item
+                    //MethodInfo moveMethod = AccessTools.Method(typeof(InventoryController), "ThrowItem");
+                    //if (moveMethod != null)
+                    //{
+                    //    // This will effectively discard the item
+                    //    moveMethod.Invoke(player.InventoryController, new object[] { defibItem, false, null });
+                    //    Plugin.LogSource.LogInfo($"Consumed defibrillator item {defibItem.Id}");
+                    //}
+                    //else
+                    //{
+                    //    Plugin.LogSource.LogError("Could not find ThrowItem method");
+                    //}
+
+                    GStruct455<GClass3200> gStruct = InteractionsHandlerClass.Discard(defibItem, player.InventoryController, true);
+                    if (gStruct.Failed)
                     {
-                        // This will effectively discard the item
-                        moveMethod.Invoke(player.InventoryController, new object[] { defibItem, false, null });
-                        Plugin.LogSource.LogInfo($"Consumed defibrillator item {defibItem.Id}");
+                        Plugin.LogSource.LogError($"Error consuming item: {gStruct.Error}");
                     }
                     else
                     {
-                        Plugin.LogSource.LogError("Could not find ThrowItem method");
+                        player.InventoryController.vmethod_1(
+                            new RemoveOperationClass(player.InventoryController.method_12(), player.InventoryController, gStruct.Value),
+                            null
+                            );
                     }
                 }
             }

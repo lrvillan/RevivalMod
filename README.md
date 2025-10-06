@@ -1,5 +1,21 @@
 # RevivalMod for SPT 🚑
 
+## Original Reference - based in v1.1.0
+https://github.com/DevKaiE/RevivalMod
+
+## New Features/Changes
+Added the helper to be able to giveup in the settings it will be f9 to be able to giveup. 
+Also I forgot to add a variable to know if they have pressed the f9 to die in deathpatch.
+Fix invisible after revive.
+Fix use defibrillator, consume it after use.
+The character can be dragged once fallen.
+In progress - Added in Server the defibrillator usages and variable in config.ini.
+
+##Forks References
+https://github.com/KIK48/RevivalMod
+https://github.com/Maselit/RevivalMod
+
+
 ## Overview
 RevivalMod adds a second-chance mechanic to Single Player Tarkov. Instead of immediately dying when taking lethal damage, you'll enter a critical state and can use a defibrillator to revive yourself and continue your raid.
 
